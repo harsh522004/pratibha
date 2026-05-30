@@ -1,0 +1,35 @@
+{
+  "skill_name": "adaptive-software-mentor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just joined this team last week and we have a React + Express codebase (it's in my current working directory). Before I start working on adding Google OAuth, I need to understand how the existing authentication flow works — like, what actually happens when a user logs in right now. Can you walk me through it?",
+      "expected_output": "The skill should: (1) check available docs first (README, CLAUDE.md), (2) find the relevant auth code without scanning the whole project, (3) explain business purpose first (why auth exists, what it protects), then user flow (login steps), then technical implementation (JWT/session handling, middleware), (4) identify key files involved and their roles, (5) connect the explanation back to where Google OAuth would fit in",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Hey so I've been using AI to ship features on this project and things work, but honestly I don't really get how the payment processing module fits together. Like I know there's a PaymentService and some Stripe integration but I couldn't tell you what actually happens between 'user clicks pay' and 'order confirmed'. Can you help me actually understand this?",
+      "expected_output": "The skill should: (1) acknowledge the AI-assisted development context without judgment, (2) explore the payment flow code — finding the PaymentService, relevant controllers, and Stripe integration, (3) build the explanation from business purpose (what does payment processing accomplish?) through the user journey (click → intent → charge → confirmation) to technical implementation, (4) track that the goal is understanding the full flow and don't stop at just the PaymentService, (5) flag any important edge cases like failed payments, webhooks, or idempotency",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Let me test my understanding of the order fulfillment flow we just went through. My understanding is: customer places order → system creates a record in the orders table → sends a webhook to the warehouse system → warehouse confirms receipt via callback → order status updates to 'processing'. Is that right? What did I miss?",
+      "expected_output": "The skill should switch into understanding verification mode: (1) confirm the parts that are correct and be specific about them, (2) identify what's missing or wrong — e.g., missing steps like payment capture, inventory reservation, notification sending, or the sequence might be slightly off, (3) return a refined and complete version of the flow rather than just pointing out errors, (4) keep the tone supportive — frame corrections as additions to a good foundation rather than 'you got it wrong'",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I need to understand the whole architecture of this codebase before my first sprint. It's a microservices app with about 6 services — can you give me a proper mental model of how it all fits together?",
+      "expected_output": "The skill should: (1) use Project Discovery mode, (2) read available docs first (README, architecture notes if any), (3) identify all 6 services and their responsibilities, (4) explain how they communicate (REST, events, shared DB?), (5) map the major data flows across services, (6) present this business-first (what does the system do for users?) before going into technical structure, (7) offer to dive deeper into any specific service after the overview",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Can you generate onboarding notes for the notification service? I want something I can hand to the next engineer who has to work on it.",
+      "expected_output": "The skill should: (1) recognize this as Documentation Mode, (2) explore the notification service code if not already covered in the session, (3) produce structured onboarding notes using the Onboarding Guide template, (4) include: what the service does, required background, mental model, main flows, where things live, common mistakes, (5) only include things that were verified in the exploration — mark any gaps as 'not covered', (6) format it in a copyable code block",
+      "files": []
+    }
+  ]
+}

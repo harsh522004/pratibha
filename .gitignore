@@ -1,0 +1,8 @@
+# eval workspaces and test run artifacts
+skills/*-workspace/
+
+# temp scripts
+skills/write_benchmark.py
+
+# requirements / design docs (local context only)
+Requirements/
