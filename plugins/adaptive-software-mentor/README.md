@@ -22,19 +22,20 @@ It does **not** write code, fix bugs, or implement features — it's purely for 
 
 ## Installation
 
-**Option A — One session (no install needed)**
-
-Start Claude Code with:
+Run these two commands once — the skill will be permanently available in every Claude Code session after that:
 
 ```bash
-claude --plugin-dir "path/to/skills/adaptive-software-mentor.skill"
+claude plugin marketplace add harsh522004/pratibha
+claude plugin install adaptive-software-mentor@pratibha
 ```
 
-The skill will be active for that session only.
+No restart needed. Open any project and start using it right away.
 
-**Option B — Permanent (available in every session)**
+**To update to the latest version later:**
 
-Coming soon — local plugin installation guide.
+```bash
+claude plugin update adaptive-software-mentor@pratibha
+```
 
 ---
 
