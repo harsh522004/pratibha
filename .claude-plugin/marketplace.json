@@ -1,0 +1,24 @@
+{
+  "name": "pratibha",
+  "description": "Personal skills collection — software understanding and developer productivity tools",
+  "owner": {
+    "name": "harsh522004"
+  },
+  "plugins": [
+    {
+      "name": "adaptive-software-mentor",
+      "description": "Guides developers to build a deep mental model of any software system — a project, feature, module, file, or concept. Helps understand code, explore codebases, make sense of features, and explain how things work before modifying them.",
+      "author": {
+        "name": "harsh522004"
+      },
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/harsh522004/pratibha.git",
+        "path": "plugins/adaptive-software-mentor",
+        "ref": "main"
+      },
+      "homepage": "https://github.com/harsh522004/pratibha"
+    }
+  ]
+}

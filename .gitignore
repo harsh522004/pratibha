@@ -1,4 +1,5 @@
 # eval workspaces and test run artifacts
+plugins/*-workspace/
 skills/*-workspace/
 
 # temp scripts
