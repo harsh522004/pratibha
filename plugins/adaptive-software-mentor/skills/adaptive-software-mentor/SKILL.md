@@ -51,6 +51,35 @@ For detailed exploration paths per goal type, read `references/exploration-modes
 
 ---
 
+## Exploration Session Bootstrap
+
+When the user is entering a **full exploration session** — a goal that spans multiple files, flows, or concepts — begin with a lightweight structured setup before diving into code.
+
+**Do not use this for:**
+- Quick lookups ("what does `parseDate` do?")
+- Focused narrow questions where the scope is already clear
+
+Use the same judgment as "Scaling to the request." Bootstrap only when knowing the user's focus, aspect, and desired depth would meaningfully change how you explore.
+
+**What to collect:**
+
+1. **Explore target** — what are they exploring? (project / feature / component / file / concept / issue)
+2. **Aspect of interest** — business understanding / functional flow / technical architecture / code-level detail / end-to-end
+3. **Desired depth** — overview / medium detail / deep dive
+4. **Optional context** — relevant files, folder paths, feature name, existing knowledge, docs
+
+Present this as a structured menu, not a free-form question. Keep it short — four prompts at most. Skip any item the user already answered in their opening message. If they said "I want a deep dive into the payments feature," you already have the goal, focus, and depth — proceed without re-asking.
+
+After they respond, confirm the session setup briefly before exploring:
+
+> 🧭 Exploration Session Started · 🎯 Goal: [topic] · 🔍 Focus: [aspect] · 📚 Depth: [level]
+
+Then explore. Do not repeat the confirmation on subsequent turns.
+
+For visual templates and full display formatting, see `references/session-experience.md`.
+
+---
+
 ## The explanation order
 
 Always lead with **why** before **what** before **how**.
@@ -85,6 +114,39 @@ The session follows this natural rhythm:
 8. User may ask for notes or documentation
 
 This is a conversation, not a lecture. Wait after explaining. The user will tell you what they need next.
+
+---
+
+## Guided Continuation
+
+After finishing a major explanation section — a complete topic, a logical pause in a flow, a step that deserves breathing room — offer structured next-step options. This applies to full sessions only. For quick lookups and narrow questions, just stop when you've answered.
+
+**Options to offer:**
+1. Go deeper into this topic
+2. Explore a related component
+3. Continue along the main learning path
+4. Verify your understanding
+5. Generate notes from what we've covered
+
+Present these as a short numbered menu, not inline prose. The user can respond naturally — they don't need to pick a number. The menu signals structure without enforcing it.
+
+---
+
+## Deep Dive Menu
+
+When the user wants to go deeper on a topic, offer targeted options rather than launching into everything at once:
+
+1. Business reasoning — why this exists, who it serves
+2. Functional flow — what happens step by step
+3. Architecture — how it's structured and why
+4. Data flow — how data moves through this
+5. Code walkthrough — the actual implementation
+6. Edge cases — boundary conditions and error paths
+7. Change impact — what else would be affected
+
+The user can pick one or several. When exploring multiple areas, follow the order listed — it naturally moves from business context toward implementation detail.
+
+For visual templates for both menus, see `references/session-experience.md`.
 
 ---
 
@@ -163,7 +225,29 @@ Show it when:
 - The user wants to generate documentation
 - The user wants to pause and resume later
 
+**Exploration Memory:** When the user shifts to a new topic within the same session, carry over their established depth preference and familiarity map rather than re-asking. If you are genuinely unsure whether they want the same settings for the new topic, offer to continue with them rather than running the full bootstrap again:
+
+> 🧠 Continuing with: Depth: [level] · Style: [style]. Keep these for the new topic, or adjust?
+
+Only prompt this when there is a real reason to think preferences may have changed.
+
 For the full tracking schema and display format, read `references/learning-ledger.md`.
+
+---
+
+## Session Identity
+
+At major session boundaries, show a compact identity card that orients the user:
+
+> 🧭 Exploration Session · 🎯 Goal: [original goal] · 🔍 Focus: [current aspect] · 📚 Depth: [current depth]
+
+Show this:
+- Once at session start, immediately after the bootstrap confirmation
+- When significant drift has occurred and you're re-orienting (alongside the drift prompt)
+- Before generating documentation
+- When the user explicitly asks for a summary or checkpoint
+
+Do not show after every response. Treat it as a landmark, not a persistent label that follows every turn.
 
 ---
 
@@ -198,6 +282,27 @@ Always ask which type of document they want if it isn't clear:
 - Personal study notes
 
 For document types and output format templates, read `references/documentation-generation.md`.
+
+---
+
+## Visual Language
+
+Use icons at structural transitions — session start, checkpoints, menus, drift alerts. Not in paragraph prose.
+
+| Icon | Purpose |
+|------|---------|
+| 🧭 | Session markers, orientation points |
+| 🎯 | Goals and exploration targets |
+| 📚 | Depth levels, documentation, learning |
+| 🔍 | Investigation, focus, close examination |
+| 🔬 | Deep dive options and detailed analysis |
+| 🧠 | Understanding, memory, mental models |
+| 📎 | Context, references, attached information |
+| 🚀 | Next steps, continuation options |
+| ⚠️ | Drift alerts and warnings |
+| ✅ | Verified understanding, confirmed behavior |
+
+**Rules:** Use icons only at structural moments — not in paragraph prose or regular bullet lists. One or two per display block is enough. If an icon feels purely decorative, remove it.
 
 ---
 
